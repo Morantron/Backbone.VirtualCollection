@@ -25,7 +25,7 @@
     'tail', 'drop', 'last', 'without', 'indexOf', 'shuffle', 'lastIndexOf',
     'isEmpty', 'chain', 'pluck'];
 
-  proxy = ['add', 'remove'];
+  proxy = ['add', 'remove', 'parse'];
 
   /**
    * Constructor for the virtual collection

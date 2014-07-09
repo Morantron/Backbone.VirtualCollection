@@ -343,6 +343,21 @@ describe('Backbone.VirtualCollection', function () {
     });
   });
 
+  describe('parse', function () {
+    var collection = new Backbone.Collection([{id: 1}, {id: 2}])
+      , response = [{id: 1}, {id: 2}];
+
+    collection.parse = function (response) {
+      return _.map(response, function (model) {
+        model.id = model.id *2;
+        return model;
+      });
+    };
+
+    vc = new VirtualCollection(collection);
+    assert.deepEqual(_.pluck(vc.parse(response), 'id'), [2, 4]);
+  });
+
   describe('filter function', function () {
     it('should recieve the model and index as arguments', function () {
       var i = 0,
